@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('url', 2048);
             $table->timestamps();
 
+            # Link on how to write relation between tables
+            ## https://laravel.com/docs/10.x/migrations#foreign-key-constraints
             $table->unsignedBigInteger('categories_id');
             $table->foreign('categories_id')->references('id')->on('categories');
 

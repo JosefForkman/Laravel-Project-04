@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('Content');
             $table->timestamps();
 
+            # Link on how to write relation between tables
+            ## https://laravel.com/docs/10.x/migrations#foreign-key-constraints
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('product_id')->references('id')->on('product');
