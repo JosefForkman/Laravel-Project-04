@@ -1,0 +1,42 @@
+@import "node_modules/font-awesome/scss/font-awesome.scss";
+@import "base/colors";
+
+* {
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+}
+
+header {
+    padding: 1rem 1.5rem;
+
+    nav {
+        display: flex;
+        justify-content: end;
+        ul {
+            display: flex;
+            gap: 1.5rem;
+            li {
+                list-style: none;
+
+                a {
+                    color: #000;
+                }
+            }
+        }
+    }
+}
+
+.side-menu {
+    width: fit-content;
+    height: 100vh;
+    padding: 2rem 1.5rem;
+
+    h2 {
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        list-style: none;
+    }
+}
