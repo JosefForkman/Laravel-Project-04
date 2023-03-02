@@ -16,15 +16,15 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         //Create categories in database
-        // DB::table('categories')->insert([
-        //     ['Name' => 'Tech'],
-        //     ['Name' => 'Games'],
-        //     ['Name' => 'Books'],
+        DB::table('categories')->insert([
+            ['Name' => 'Tech'],
+            ['Name' => 'Games'],
+            ['Name' => 'Books'],
 
-        // ]);
+        ]);
 
         //Fill User Table with dummy user
-        // \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(10)->create();
 
 
         DB::table('product')->insert([
