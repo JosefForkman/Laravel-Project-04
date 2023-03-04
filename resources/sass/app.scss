@@ -1,5 +1,6 @@
 @import "node_modules/font-awesome/scss/font-awesome.scss";
 @import "base/colors";
+@import "components/prodoktCard";
 
 * {
     padding: 0px;
@@ -42,4 +43,10 @@ header {
     ul {
         list-style: none;
     }
+}
+
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 1fr);;
 }

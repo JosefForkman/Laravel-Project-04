@@ -16,5 +16,10 @@
     <body>
         <x-header />
         <x-sideMenu />
+
+        <main>
+            <x-productCard />
+            <x-productCard />
+        </main>
     </body>
 </html>
