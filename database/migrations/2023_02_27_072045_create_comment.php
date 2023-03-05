@@ -18,10 +18,13 @@ return new class extends Migration
 
             # Link on how to write relation between tables
             ## https://laravel.com/docs/10.x/migrations#foreign-key-constraints
-            $table->unsignedBigInteger('product_id');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('product_id')->references('id')->on('product');
-            $table->foreign('user_id')->references('id')->on('users');
+            // $table->unsignedBigInteger('product_id');
+            // $table->unsignedBigInteger('user_id');
+            // $table->foreign('product_id')->references('id')->on('products');
+            // $table->foreign('user_id')->references('id')->on('users');
+            $table->foreignId('products_id')->constrained();
+            $table->foreignId('users_id')->constrained();
+
         });
     }
 

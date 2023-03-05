@@ -18,14 +18,7 @@
         <x-sideMenu />
 
         <main>
-            <h2>Book</h2>
-            <ul>
-                @foreach ($prodokts as $prodokt)
-
-                <x-productCard :prodokt="$prodokt" />
-                {{-- {{dd($prodokt)}} --}}
-                @endforeach
-            </ul>
+            <h1>Prodokt page</h1>
         </main>
     </body>
 </html>

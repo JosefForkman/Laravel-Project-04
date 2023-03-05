@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('Name')->unique();
             $table->float('Price')->default(0);
@@ -20,8 +20,9 @@ return new class extends Migration
 
             # Link on how to write relation between tables
             ## https://laravel.com/docs/10.x/migrations#foreign-key-constraints
-            $table->unsignedBigInteger('categories_id');
-            $table->foreign('categories_id')->references('id')->on('categories');
+            // $table->unsignedBigInteger('categories_id');
+            // $table->foreign('categories_id')->references('id')->on('categories');
+            $table->foreignId('categories_id')->constrained();
 
         });
     }
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product');
+        Schema::dropIfExists('products');
     }
 };

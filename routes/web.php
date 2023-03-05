@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\product;
+use App\Models\products;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ['prodokts' => products::all()]);
+});
+
+Route::get("/prodokt/{ProdoktName}", function(string $ProdoktName) {
+    return view('prodokt');
 });

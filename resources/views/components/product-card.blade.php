@@ -1,4 +1,6 @@
-<article class="prodoktCard">
-    <img src="https://image.api.playstation.com/vulcan/ap/rnd/202108/0410/LWU1Z3vAh706rXPr2zWkKjGe.png" alt="">
-    <h2>Book</h2>
-</article>
+<li class="prodoktCard">
+    <img src="{{$prodokt->url}}" alt="">
+    <h3>{{$prodokt->Name}}</h3>
+    <span>250 kr</span>
+    <a class="btn" href="/prodokt/{{Str::kebab($prodokt->Name)}}">Köp</a>
+</li>
