@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('Name')->unique();
             $table->float('Price')->default(0);
+            $table->text('Description');
             $table->string('url', 2048);
             $table->timestamps();
 
