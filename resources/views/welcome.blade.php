@@ -18,8 +18,7 @@
         <x-sideMenu />
 
         <main>
-            <h2>Book</h2>
-            <ul>
+            <ul class="categorieContiner">
                 @foreach ($categorie as $item)
                     <x-productCard :categorie="$item"/>
                 @endforeach

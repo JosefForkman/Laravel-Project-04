@@ -1,8 +1,12 @@
 .prodoktCard {
     display: flex;
     flex-direction: column;
+    gap: .5em;
 
     img {
         width: 100%;
+    }
+    a {
+        align-self: baseline;
     }
 }

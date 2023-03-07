@@ -1,12 +1,12 @@
 <li>
     <h2>{{$Products->Name}}</h2>
     @foreach($Products->products as $items)
-    <ul>
+    <ul class="prodoktContiner">
         <li class="prodoktCard">
             <img src="{{$items->url}}" alt="">
             <h3>{{$items->Name}}</h3>
             <span>{{$items->Price}} kr</span>
-            <a class="btn" href="/prodokt/{{Str::kebab($items->Name)}}">Köp</a>
+            <a class="btn bg-blue text-white" href="/prodokt/{{Str::kebab($items->Name)}}">Köp</a>
         </li>
     </ul>
     @endforeach

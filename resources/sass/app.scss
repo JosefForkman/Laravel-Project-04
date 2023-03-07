@@ -1,6 +1,8 @@
 @import "node_modules/font-awesome/scss/font-awesome.scss";
 @import "base/colors";
+
 @import "components/prodoktCard";
+@import "components/button";
 
 * {
     padding: 0px;
@@ -29,9 +31,6 @@ header {
                 a {
                     color: #000;
                 }
-                &:hover {
-
-                }
             }
         }
     }
@@ -39,7 +38,7 @@ header {
 
 .side-menu {
     width: fit-content;
-    height: 100vh;
+    min-height: 100vh;
     padding: 2rem 1.5rem;
 
     h2 {
@@ -54,9 +53,24 @@ header {
 
 main {
     padding: 1rem;
+    .categorieContiner {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        .prodoktContiner {
+
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+
+        }
+        li {
+            h2 {
+                margin-bottom: 1rem;
+            }
+        }
+    }
     ul {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 1rem;
+        list-style: none;
     }
 }
