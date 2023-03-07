@@ -22,7 +22,7 @@ return new class extends Migration
             ## https://laravel.com/docs/10.x/migrations#foreign-key-constraints
             // $table->unsignedBigInteger('categories_id');
             // $table->foreign('categories_id')->references('id')->on('categories');
-            $table->foreignId('categories_id')->constrained();
+            $table->foreignId('categories_id')->constrained('categories');
 
         });
     }

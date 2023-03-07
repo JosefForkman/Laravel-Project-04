@@ -11,10 +11,12 @@ class products extends Model
 {
     use HasFactory;
 
-    protected function Categories():HasOne {
-        return $this->hasOne(categories::class);
+    public function categorie(): HasOne
+    {
+        return $this->hasOne(categories::class, "id");
     }
-    protected function comments ():HasMany {
-        return $this->hasMany(comment::class);
+    public function comments(): HasMany
+    {
+        return $this->hasMany(comment::class, "id");
     }
 }

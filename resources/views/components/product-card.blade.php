@@ -1,6 +1,14 @@
-<li class="prodoktCard">
-    <img src="{{$prodokt->url}}" alt="">
-    <h3>{{$prodokt->Name}}</h3>
-    <span>250 kr</span>
-    <a class="btn" href="/prodokt/{{Str::kebab($prodokt->Name)}}">Köp</a>
+<li>
+    <h2>{{$Products->Name}}</h2>
+    @foreach($Products->products as $items)
+    <ul>
+        <li class="prodoktCard">
+            <img src="{{$items->url}}" alt="">
+            <h3>{{$items->Name}}</h3>
+            <span>{{$items->Price}} kr</span>
+            <a class="btn" href="/prodokt/{{Str::kebab($items->Name)}}">Köp</a>
+        </li>
+    </ul>
+    @endforeach
 </li>
+

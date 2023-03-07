@@ -20,10 +20,8 @@
         <main>
             <h2>Book</h2>
             <ul>
-                @foreach ($prodokts as $prodokt)
-
-                <x-productCard :prodokt="$prodokt" />
-                {{-- {{dd($prodokt)}} --}}
+                @foreach ($categorie as $item)
+                    <x-productCard :categorie="$item"/>
                 @endforeach
             </ul>
         </main>

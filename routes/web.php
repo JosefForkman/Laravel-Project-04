@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\product;
+use App\Models\categories;
 use App\Models\products;
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome', ['prodokts' => products::all()]);
+    return view('welcome', ["categorie" => categories::all()]);
 });
 
 Route::get("/prodokt/{ProdoktName}", function(string $ProdoktName) {
