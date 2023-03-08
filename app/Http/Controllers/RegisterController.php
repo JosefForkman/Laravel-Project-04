@@ -33,6 +33,6 @@ class RegisterController extends Controller
         $user->remember_token = $request->_token;
         $user->save();
 
-        return redirect()->to('welcome');
+        return redirect()->to('/');
     }
 }

@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('welcome', ["categorie" => categories::all()]);
+    return view('welcome', ["categorie" => categories::all()])->name('login');
 });
 
 Route::get("/prodokt/{ProdoktName}", function (string $ProdoktName) {
@@ -35,7 +35,7 @@ Route::get("/prodokt/{ProdoktName}", function (string $ProdoktName) {
     return view('prodokt');
 });
 
-Route::view('/', 'welcome', ["categorie" => categories::all()])->name('login');
+// Route::view('/', 'welcome', ["categorie" => categories::all()])->name('login');
 
 Route::get('login_form', function () {
     return view('login_form');
