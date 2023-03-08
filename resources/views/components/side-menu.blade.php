@@ -1,4 +1,4 @@
-<section class="side-menu bg-blue">
+<aside class="side-menu bg-blue">
     <h2 class="text-white">Katogorier</h2>
     <nav>
         <ul>
@@ -7,4 +7,4 @@
             @endforeach
         </ul>
     </nav>
-</section>
+</aside>

@@ -19,6 +19,7 @@
 
         <main>
             <ul class="categorieContiner">
+
                 @foreach ($categorie as $item)
                     <x-productCard :categorie="$item"/>
                 @endforeach
