@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,13 +28,7 @@ Route::get('/', function () {
     return view('welcome', ["categorie" => categories::all()])->name('login');
 });
 
-Route::get("/prodokt/{ProdoktName}", function (string $ProdoktName) {
-    return view('prodokt');
-});
-
-Route::get("/prodokt/{ProdoktName}", function (string $ProdoktName) {
-    return view('prodokt');
-});
+Route::get("/prodokt/{ProdoktName}", [ProductController::class, 'getProdukt']);
 
 // Route::view('/', 'welcome', ["categorie" => categories::all()])->name('login');
 
@@ -67,10 +62,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
             return view('welcome');
         })->name('adminDashboard');
     });
-});
-
-Route::get("/prodokt/{ProdoktName}", function (string $ProdoktName) {
-    return view('prodokt');
 });
 
 Route::view('/', 'welcome', ["categorie" => categories::all()])->name('login');

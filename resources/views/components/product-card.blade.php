@@ -6,7 +6,7 @@
             <img src="{{$items->url}}" alt="">
             <h3>{{$items->Name}}</h3>
             <span>{{$items->Price}} kr</span>
-            <a class="btn bg-blue text-white" href="/prodokt/{{Str::kebab($items->Name)}}">Köp</a>
+            <a class="btn bg-blue text-white" href="/prodokt/{{$items->Name}}">Köp</a>
         </li>
     </ul>
     @endforeach

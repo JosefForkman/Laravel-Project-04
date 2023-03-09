@@ -19,6 +19,8 @@
 
         <main>
             <h1>Prodokt page</h1>
+
+            {{dd($product)}}
         </main>
     </body>
 </html>
