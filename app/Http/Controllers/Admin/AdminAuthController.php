@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminAuthController extends Controller
 {
@@ -20,15 +23,26 @@ class AdminAuthController extends Controller
             'password' => 'required',
         ]);
 
-        if (auth()->guard('admin')->attempt(['email' => $request->input('email'),  'password' => $request->input('password')])) {
-            $user = auth()->guard('admin')->user();
+
+
+        // $user = auth()->guard('admin')->user();
+        // $user = request();
+        $user = Admin::where("email", $request->email)->first();
+
+
+
+        if (Hash::check($request->password, $user->password)) {
             if ($user->is_admin == 1) {
-                return redirect()->route('adminDashboard')->with('success', 'You are Logged in sucessfully.');
-            }
+                // return redirect()->route('adminDashboard')->with('success', 'You are Logged in sucessfully.');
+                return redirect('adminDashboard');
+            } else {
+                return back()->withErrors('error', 'Whoops! invalid email and password.');
+            };
         } else {
-            return back()->with('error', 'Whoops! invalid admin email and password.');
+            return "something went wrong";
         }
     }
+
 
     public function adminLogout(Request $request)
     {

@@ -5,6 +5,7 @@
 use App\Models\categories;
 use App\Models\products;
 use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LogoutController;
@@ -87,13 +88,24 @@ Route::get('About', function () {
 });
 
 //Admin
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
-    Route::get('/login', [AdminAuthController::class, 'getLogin'])->name('adminLogin');
-    Route::post('/login', [AdminAuthController::class, 'postLogin'])->name('adminLoginPost');
+// Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+//     Route::get('/login', [AdminAuthController::class, 'getLogin'])->name('adminLogin');
+//     Route::post('/login', [AdminAuthController::class, 'postLogin'])->name('adminLoginPost');
 
-    Route::group(['middleware' => 'adminauth'], function () {
-        Route::get('/', function () {
-            return view('welcome');
-        })->name('adminDashboard');
-    });
-});
+//     Route::group(['middleware' => 'adminauth'], function () {
+//         Route::get('/', function () {
+//             return view('welcome');
+//         })->name('adminDashboard');
+//     });
+// });
+
+//login Admin
+Route::post('admin_login', [AdminAuthController::class, 'postLogin']);
+// Route::get('adminDashboard', function () {
+//     return view('adminDashboard');
+// });
+
+Route::get('adminDashboard', AdminDashboardController::class)->middleware('auth');
+
+//logout Admin
+Route::get('admin_logout', [AdminAuthController::class, 'adminLogout']);

@@ -7,6 +7,8 @@
 
 <div class="container">
     Welcome, Admin
+
+    <a href="admin_logout">Logout</a>
 </div>
 
 </body>
