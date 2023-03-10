@@ -62,5 +62,7 @@ class DatabaseSeeder extends Seeder
             ],
 
         ]);
+
+        \App\Models\comment::factory(10)->create();
     }
 }

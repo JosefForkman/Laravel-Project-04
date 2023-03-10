@@ -11,6 +11,6 @@ class ProductController extends Controller
     public function getProdukt(string $ProdoktName)
     {
         // $ProdoktId = Str::replace("-", " ", $ProdoktName);
-        return view('prodokt', ["product" => products::where('Name', $ProdoktName)->first()->comment]);
+        return view('prodokt', ["product" => products::where('Name', $ProdoktName)->first()->comments]);
     }
 }

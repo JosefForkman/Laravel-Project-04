@@ -17,6 +17,6 @@ class products extends Model
     }
     public function comments(): HasMany
     {
-        return $this->hasMany(comment::class, "id");
+        return $this->hasMany(comment::class);
     }
 }

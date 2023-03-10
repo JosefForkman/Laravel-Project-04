@@ -10,6 +10,11 @@ class comment extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'Content',
+        'products_id',
+        'users_id',
+    ];
     protected function comments ():HasMany {
         return $this->hasMany(User::class, "id");
     }
