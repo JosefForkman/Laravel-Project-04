@@ -13,7 +13,7 @@ class products extends Model
 
     public function categorie(): HasOne
     {
-        return $this->hasOne(categories::class, "id");
+        return $this->hasOne(categories::class);
     }
     public function comments(): HasMany
     {

@@ -29,7 +29,9 @@ Route::get('/', function () {
     return view('welcome', ["categorie" => categories::all()])->name('login');
 });
 
+// Singel prodokt
 Route::get("/prodokt/{ProdoktName}", [ProductController::class, 'getProdukt']);
+Route::post("/prodokt", [ProductController::class, 'postProdukt']);
 
 // Route::view('/', 'welcome', ["categorie" => categories::all()])->name('login');
 

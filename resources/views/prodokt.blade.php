@@ -6,6 +6,8 @@
 
         <title>Laravel</title>
 
+        <script src="https://kit.fontawesome.com/a913f4ac89.js" crossorigin="anonymous"></script>
+
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
@@ -17,10 +19,34 @@
         <x-header />
         <x-sideMenu />
 
-        <main>
-            <h1>Prodokt page</h1>
+        <main class="produkt">
+            <img src="{{$product->url}}" alt="">
+            <h2>{{$product->Name}}</h2>
+            <span>{{$product->Price}} kr</span>
+            <p>{{$product->Description}}</p>
+            <div class="CommentsContiner">
+                <ul class="comment">
+                    @foreach ($product->comments as $item)
+                        <li>
+                            <p>{{$item->Content}}</p>
+                            {{-- <span>{{$item->updated_at->isoFormat('DD/MM')}}</span> --}}
+                        </li>
+                    @endforeach
+
+                    @if(count($product->comments) == 0)
+                        <li class="center">Be the first on this prodokt to comment!</li>
+                    @endif
+                </ul>
 
             {{dd($product)}}
+                <form action="/prodokt" method="post">
+                    @method('post')
+                    @csrf
+                    <input type="hidden" name="prodokt_Name" value="{{$product->Name}}">
+                    <textarea name="comment" id="" placeholder="Example: I bought this a month ago and I'm really glad I did…"></textarea>
+                    <button class="btn bg-blue text-white" type="submit">Send reception</button>
+                </form>
+            </div>
         </main>
     </body>
 </html>

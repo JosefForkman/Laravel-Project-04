@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class comment extends Model
 {
@@ -15,7 +15,7 @@ class comment extends Model
         'products_id',
         'users_id',
     ];
-    protected function comments ():HasMany {
-        return $this->hasMany(User::class, "id");
+    protected function user ():HasOne {
+        return $this->hasOne(User::class);
     }
 }
