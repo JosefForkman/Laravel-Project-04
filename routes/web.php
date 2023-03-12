@@ -31,7 +31,7 @@ Route::get('/', function () {
 
 // Singel prodokt
 Route::get("/prodokt/{ProdoktName}", [ProductController::class, 'getProdukt']);
-Route::post("/prodokt", [ProductController::class, 'postProdukt']);
+Route::post("/prodokt", [ProductController::class, 'postProdukt'])->middleware('auth');
 
 // Route::view('/', 'welcome', ["categorie" => categories::all()])->name('login');
 
@@ -71,7 +71,7 @@ Route::view('/', 'welcome', ["categorie" => categories::all()])->name('login');
 
 Route::get('login_form', function () {
     return view('login_form');
-});
+})->name('login');
 //login user
 Route::post('login', LoginController::class);
 Route::get('dashboard', DashboardController::class)->middleware('auth');

@@ -18,13 +18,10 @@ class ProductController extends Controller
     public function postProdukt(Request $request)
     {
 
-        $this->validate($request, [
+        $this->validate($request,
+        [
             "comment" => "required"
         ]);
-
-        if (!Auth::check()) {
-            return redirect('/login_form')->withErrors("you need to be sign in");
-        }
 
         $products_id = products::where('Name', $request->prodokt_Name)->get('id')->first();
 

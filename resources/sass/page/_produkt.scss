@@ -26,7 +26,8 @@
             gap: 1rem;
 
             overflow-y: auto;
-            height: 300px;
+            height: 400px;
+            width: 370px;
 
             padding-block: 0.5em;
             border-radius: 0.5em 0.5em 0 0;
@@ -34,12 +35,16 @@
 
             li {
                 display: flex;
-                flex-direction: column;
+                flex-wrap: wrap;
+                // flex-direction: column;
                 gap: .4em;
                 color: #fff;
                 background-color: #AAB6D7;
                 padding: 0.5em;
 
+                p {
+                    flex-grow: 1;
+                }
                 .center {
                     justify-self: center;
                 }

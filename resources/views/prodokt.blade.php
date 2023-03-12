@@ -29,6 +29,11 @@
                     @foreach ($product->comments as $item)
                         <li>
                             <p>{{$item->Content}}</p>
+
+                            @if(Auth::id() == $item->users_id)
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            @endif
+                            
                             {{-- <span>{{$item->updated_at->isoFormat('DD/MM')}}</span> --}}
                         </li>
                     @endforeach
@@ -38,12 +43,11 @@
                     @endif
                 </ul>
 
-            {{dd($product)}}
                 <form action="/prodokt" method="post">
                     @method('post')
                     @csrf
                     <input type="hidden" name="prodokt_Name" value="{{$product->Name}}">
-                    <textarea name="comment" id="" placeholder="Example: I bought this a month ago and I'm really glad I did…"></textarea>
+                    <textarea name="comment" required id="" placeholder="Example: I bought this a month ago and I'm really glad I did…"></textarea>
                     <button class="btn bg-blue text-white" type="submit">Send reception</button>
                 </form>
             </div>
