@@ -11,7 +11,7 @@ class AdminDashboardController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $user = Admin::where("email", $request->email)->first();
+        $user = Admin::class;
 
         return view('adminDashboard', [
             'user' => $user
