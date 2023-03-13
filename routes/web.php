@@ -6,6 +6,7 @@ use App\Models\categories;
 use App\Models\products;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\BoughtController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LogoutController;
@@ -89,17 +90,6 @@ Route::get('About', function () {
     return view('about');
 });
 
-//Admin
-// Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
-//     Route::get('/login', [AdminAuthController::class, 'getLogin'])->name('adminLogin');
-//     Route::post('/login', [AdminAuthController::class, 'postLogin'])->name('adminLoginPost');
-
-//     Route::group(['middleware' => 'adminauth'], function () {
-//         Route::get('/', function () {
-//             return view('welcome');
-//         })->name('adminDashboard');
-//     });
-// });
 
 //login Admin
 Route::post('admin_login', [AdminAuthController::class, 'postLogin']);
@@ -111,3 +101,15 @@ Route::get('adminDashboard', AdminDashboardController::class)->middleware('auth'
 
 //logout Admin
 Route::get('admin_logout', [AdminAuthController::class, 'adminLogout']);
+
+//Cart
+Route::get('cart', function () {
+    return view('cart');
+});
+
+//bought
+Route::post('shopping', [BoughtController::class, 'store']);
+
+Route::get('succesfully_bought', function () {
+    return view('succesfully_bought');
+});

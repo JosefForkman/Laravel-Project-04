@@ -1,4 +1,5 @@
 <header class="bg-blue">
+    <script src="https://kit.fontawesome.com/a913f4ac89.js" crossorigin="anonymous"></script>
     <nav>
         <ul>
             <li><a class="text-white" href="/">Home</a></li>
@@ -9,6 +10,7 @@
             @else
             <li><a class="text-white" href="logout">Sign out</a></li>
             @endif
+            <li><a href="/cart"><i class="fa-regular fa-cart-shopping"></i></a></li>
         </ul>
 
     </nav>

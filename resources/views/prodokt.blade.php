@@ -20,10 +20,19 @@
         <x-sideMenu />
 
         <main class="produkt">
-            <img src="{{$product->url}}" alt="">
             <h2>{{$product->Name}}</h2>
-            <span>{{$product->Price}} kr</span>
-            <p>{{$product->Description}}</p>
+            <img src="{{$product->url}}" alt="">
+            <form action="/shopping" method="post">
+                @csrf
+                {{-- <span>{{$product->Price}} kr</span> --}}
+                <input type="hidden" name="products_name" value="{{$product->Name}}" readonly>
+                <input type="text" name="price" value="{{$product->Price}}" readonly >
+                <input type="hidden" name="product_id" value="{{$product->id}}">
+                <input type="number" name="quantity" value="1" min="1" max="10">
+                <p>{{$product->Description}}</p>
+                <button type="submit" name="action" value="add_to_cart">Add to Cart</button>
+                <button type="submit" name="action" value="buy">buy</button>
+            </form>
             <div class="CommentsContiner">
                 <ul class="comment">
                     @foreach ($product->comments as $item)
@@ -33,7 +42,7 @@
                             @if(Auth::id() == $item->users_id)
                             <i class="fa-solid fa-pen-to-square"></i>
                             @endif
-                            
+
                             {{-- <span>{{$item->updated_at->isoFormat('DD/MM')}}</span> --}}
                         </li>
                     @endforeach

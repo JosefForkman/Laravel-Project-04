@@ -24,7 +24,6 @@ return new class extends Migration
             // $table->foreign('user_id')->references('id')->on('users');
             $table->foreignId('products_id')->constrained('products');
             $table->foreignId('users_id')->constrained();
-
         });
     }
 
