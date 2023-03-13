@@ -57,7 +57,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
     Route::group(['middleware' => 'adminauth'], function () {
         Route::get('/', function () {
-            return view('welcome');
+            return view('welcome', ["categorie" => categories::all()]);
         })->name('adminDashboard');
     });
 });
@@ -87,7 +87,7 @@ Route::get('About', function () {
 //login Admin
 Route::post('admin_login', [AdminAuthController::class, 'postLogin']);
 
-Route::get('adminDashboard', AdminDashboardController::class)->middleware('auth');
+Route::get('adminDashboard', AdminDashboardController::class)->middleware('admin');
 
 //logout Admin
 Route::get('admin_logout', [AdminAuthController::class, 'adminLogout']);
