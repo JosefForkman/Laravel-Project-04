@@ -25,6 +25,7 @@ class BoughtController extends Controller
                 $item->products_id = $request->product_id;
                 $item->users_id = Auth::id();
                 $item->quantity = $request->quantity;
+                $item->price = $request->total_price;
                 $item->save();
 
                 return redirect()->to('succesfully_bought');
@@ -38,7 +39,7 @@ class BoughtController extends Controller
                 $cart_item->products_id = $request->product_id;
                 $cart_item->users_id = Auth::id();
                 $cart_item->quantity = $request->quantity;
-                $cart_item->price = $request->price;
+                $cart_item->price = $request->total_price;
                 $cart_item->save();
 
                 return redirect()->to('/');

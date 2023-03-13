@@ -26,10 +26,11 @@
                 @csrf
                 {{-- <span>{{$product->Price}} kr</span> --}}
                 <input type="hidden" name="products_name" value="{{$product->Name}}" readonly>
-                <input type="text" name="price" value="{{$product->Price}}" readonly >
+                <input type="text" name="price" id="price" value="{{$product->Price}}" readonly >
                 <input type="hidden" name="product_id" value="{{$product->id}}">
-                <input type="number" name="quantity" value="1" min="1" max="10">
+                <input type="number" name="quantity" id="quantity" value="1" min="1" max="10">
                 <p>{{$product->Description}}</p>
+                <input type="number" name="total_price" id="total_price" value="" readonly>
                 <button type="submit" name="action" value="add_to_cart">Add to Cart</button>
                 <button type="submit" name="action" value="buy">buy</button>
             </form>
@@ -61,5 +62,25 @@
                 </form>
             </div>
         </main>
+        <script>
+            const form = document.querySelector('form');
+            let price = document.querySelector('#price').value;
+            let totalPrice = document.querySelector('#total_price');
+
+            form.addEventListener('change', () => {
+                const quantity = document.querySelector('#quantity').value;
+
+                // console.log(price);
+                console.log(quantity);
+
+                let amount = price * quantity;
+
+                totalPrice.value = amount;
+            })
+
+
+
+
+        </script>
     </body>
 </html>
