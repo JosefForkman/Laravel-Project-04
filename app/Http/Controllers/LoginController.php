@@ -13,10 +13,10 @@ class LoginController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //get Email and password
+        # Get Email and password
         $credentials = $request->only(['email', 'password']);
 
-        //check if user is a valid user
+        # Check if user is a valid user
         if (Auth::attempt($credentials)) {
             return Redirect('dashboard');
         }

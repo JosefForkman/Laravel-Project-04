@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
+use App\Models\Admin;
 use App\Models\categories;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
@@ -27,6 +28,8 @@ class DatabaseSeeder extends Seeder
 
         //Fill User Table with dummy user
         \App\Models\User::factory(10)->create();
+
+        Admin::factory(10)->create();
 
 
         DB::table('products')->insert([

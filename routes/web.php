@@ -3,7 +3,6 @@
 
 
 use App\Models\categories;
-use App\Models\products;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\BoughtController;
@@ -34,11 +33,6 @@ Route::get('/', function () {
 Route::get("/prodokt/{ProdoktName}", [ProductController::class, 'getProdukt']);
 Route::post("/prodokt", [ProductController::class, 'postProdukt'])->middleware('auth');
 
-// Route::view('/', 'welcome', ["categorie" => categories::all()])->name('login');
-
-Route::get('login_form', function () {
-    return view('login_form');
-});
 //login user
 Route::post('login', LoginController::class);
 Route::get('dashboard', DashboardController::class)->middleware('auth');
@@ -90,12 +84,8 @@ Route::get('About', function () {
     return view('about');
 });
 
-
 //login Admin
 Route::post('admin_login', [AdminAuthController::class, 'postLogin']);
-// Route::get('adminDashboard', function () {
-//     return view('adminDashboard');
-// });
 
 Route::get('adminDashboard', AdminDashboardController::class)->middleware('auth');
 

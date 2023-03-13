@@ -16,7 +16,6 @@ class Admin extends Model
         'name',
         'email',
         'password',
-
     ];
 
     protected $casts = [

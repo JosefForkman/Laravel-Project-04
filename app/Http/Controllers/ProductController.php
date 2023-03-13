@@ -18,13 +18,16 @@ class ProductController extends Controller
     public function postProdukt(Request $request)
     {
 
+        # Validate form input
         $this->validate($request,
         [
             "comment" => "required"
         ]);
 
+        # Get product id
         $products_id = products::where('Name', $request->prodokt_Name)->get('id')->first();
 
+        # Make comment with Content
         comment::create([
             'Content' => $request->comment,
             'users_id' => Auth::id(),

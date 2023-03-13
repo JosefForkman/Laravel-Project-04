@@ -15,20 +15,21 @@
     </head>
 <body>
     <x-header />
-
-
-    <h1>About us</h1>
-    <h2>
-        We're a small webbshop designed to bring you the best shopping experience on the internet.
-        We consist of a small team of 3 webbdevelopers with a passion for user experience and functionality.
-
-    </h2>
-
-    <p>
-        Our Shop is designed to be as painless and easy to use for everyone. We hand select our products that we belive
-        our users need/wants. We put a huge emphasis on quality and would never sell any product we hadn't made a thorough
-        check on.
-    </p>
     <x-sideMenu />
 
+
+    <main>
+        <h1>About us</h1>
+        <h2>
+            We're a small webbshop designed to bring you the best shopping experience on the internet.
+            We consist of a small team of 3 webbdevelopers with a passion for user experience and functionality.
+        </h2>
+        <p>
+            Our Shop is designed to be as painless and easy to use for everyone. We hand select our products that we belive
+            our users need/wants. We put a huge emphasis on quality and would never sell any product we hadn't made a thorough
+            check on.
+        </p>
+    </main>
+
 </body>
+
