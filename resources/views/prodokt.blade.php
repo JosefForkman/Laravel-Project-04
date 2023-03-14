@@ -70,16 +70,20 @@
             form.addEventListener('change', () => {
                 const quantity = document.querySelector('#quantity').value;
 
-                // console.log(price);
+                console.log(price);
                 console.log(quantity);
 
                 let amount = price * quantity;
 
                 totalPrice.value = amount;
+
+
             })
 
-
-
+            if(totalPrice.value == 0)
+                {
+                    totalPrice.value = price
+                }
 
         </script>
     </body>

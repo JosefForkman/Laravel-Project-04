@@ -11,6 +11,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
+use App\Models\Carts;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -94,7 +96,7 @@ Route::get('admin_logout', [AdminAuthController::class, 'adminLogout']);
 
 //Cart
 Route::get('cart', function () {
-    return view('cart');
+    return view('cart', ['cart' => Carts::all()->where('users_id', Auth::id())]);
 });
 
 //bought
