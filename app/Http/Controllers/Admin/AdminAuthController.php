@@ -22,25 +22,7 @@ class AdminAuthController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-
-        // dd($credentials);
-        // dd(auth()->guard('admin')->attempt($credentials));
-
-        // $user = auth()->guard('admin')->user();
-        // $user = request();
-        // $user = Admin::where("email", $request->email)->first();
-        // if (Hash::check($request->password, $user->password)) {
-        //     if ($user->is_admin == 1) {
-        //         // return redirect()->route('adminDashboard')->with('success', 'You are Logged in sucessfully.');
-        //         return redirect()->route('adminDashboard')->with('success','You are Logged in sucessfully.');
-        //     } else {
-        //         return back()->withErrors('error', 'Whoops! invalid email and password.');
-        //     };
-        // } else {
-        //     return back()->with('error','Whoops! invalid email and password.');
-        // }
-
-        if(auth()->guard('admin')->attempt(['email' => $request->input('email'),  'password' => $request->input('password')])){
+        if(auth()->guard('admin')->attempt($credentials)){
             $user = auth()->guard('admin')->user();
             if($user->is_admin == 1){
                 return redirect()->route('adminDashboard')->with('success','You are Logged in sucessfully.');

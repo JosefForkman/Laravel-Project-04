@@ -11,6 +11,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Middleware\AdminAuthenticated;
 use App\Models\Carts;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -29,7 +30,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome', ["categorie" => categories::all()])->name('login');
-});
+})->middleware('admin');
 
 // Singel prodokt
 Route::get("/prodokt/{ProdoktName}", [ProductController::class, 'getProdukt']);
@@ -58,9 +59,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::post('/login', [AdminAuthController::class, 'postLogin'])->name('adminLoginPost');
 
     Route::group(['middleware' => 'adminauth'], function () {
-        Route::get('/', function () {
-            return view('welcome', ["categorie" => categories::all()]);
-        })->name('adminDashboard');
+        // Route::get('/', function () {
+        //     return view('welcome', ["categorie" => categories::all()]);
+        // })->name('adminDashboard');
     });
 });
 
@@ -89,7 +90,7 @@ Route::get('About', function () {
 //login Admin
 Route::post('admin_login', [AdminAuthController::class, 'postLogin']);
 
-Route::get('adminDashboard', AdminDashboardController::class)->middleware('admin');
+Route::get('adminDashboard', AdminDashboardController::class)->middleware(AdminAuthenticated::class)->name('adminDashboard');
 
 //logout Admin
 Route::get('admin_logout', [AdminAuthController::class, 'adminLogout']);

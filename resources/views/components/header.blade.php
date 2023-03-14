@@ -5,7 +5,9 @@
             <li><a class="text-white" href="/">Home</a></li>
             <li><a class="text-white" href="/Produkt">Produkt</a></li>
             <li><a class="text-white" href="/About">About</a></li>
-            @if (!Auth::check())
+
+            {{-- {{dd()}} --}}
+            @if (!Auth::check() || !auth()->guard('admin')->check())
             <li><a class="text-white" href="/login_form">Logga in</a></li>
             @else
             <li><a class="text-white" href="logout">Sign out</a></li>
