@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -12,26 +13,15 @@ class RegisterController extends Controller
      */
     public function __invoke(Request $request)
     {
-        // $this->validate(request(), [
-        //     'name' => 'required',
-        //     'email' => 'required|email',
-        //     'password' => 'required'
-        // ]);
+        $validatedInput  = $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:8'
+        ]);
 
-        // $user = User::create(request(['name', 'email', 'password']));
+        $user = User::create([...$validatedInput, "password" => Hash::make($request->password)]);
 
-        // auth()->login($user);
-
-        // return redirect()->to('/welcome');
-
-        // return "Hello World";
-
-        $user = new User();
-        $user->name  = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->remember_token = $request->_token;
-        $user->save();
+        auth()->login($user);
 
         return redirect()->to('/');
     }

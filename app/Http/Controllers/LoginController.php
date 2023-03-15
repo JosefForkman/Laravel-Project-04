@@ -16,11 +16,17 @@ class LoginController extends Controller
         # Get Email and password
         $credentials = $request->only(['email', 'password']);
 
+        # Validate inputs
+        $this->validate($request, [
+            "email" => "required|email",
+            "password" => "required|min:8",
+        ]);
+
         # Check if user is a valid user
         if (Auth::attempt($credentials)) {
             return Redirect('dashboard');
         }
 
-        return back()->withErrors('Wrong login credentials');
+        return back();
     }
 }
