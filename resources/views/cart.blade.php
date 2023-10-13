@@ -12,26 +12,11 @@
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
-
 <!-- Styles -->
-@vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/app.css'])
+@vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
     <x-header />
-    <x-sideMenu />
-    <h1 class="cart-title">Cart</h1>
-    {{-- {{dd($cart)}} --}}
-    <div class="cart-products">
-
-        @if(Auth::check())
-        @foreach($cart as $item)
-        <ul>
-            <li>
-                {{$item->products_name}}
-            </li>
-        </ul>
-        @endforeach
-        @endif
-    </div>
+    <h1>Cart</h1>
 </body>
 </html>

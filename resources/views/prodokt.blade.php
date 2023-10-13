@@ -54,7 +54,6 @@
                 </ul>
 
                 <form action="/prodokt" method="post">
-                    @method('post')
                     @csrf
                     <input type="hidden" name="prodokt_Name" value="{{$product->Name}}">
                     <textarea name="comment" required id="" placeholder="Example: I bought this a month ago and I'm really glad I did…"></textarea>
@@ -70,20 +69,16 @@
             form.addEventListener('change', () => {
                 const quantity = document.querySelector('#quantity').value;
 
-                console.log(price);
+                // console.log(price);
                 console.log(quantity);
 
                 let amount = price * quantity;
 
                 totalPrice.value = amount;
-
-
             })
 
-            if(totalPrice.value == 0)
-                {
-                    totalPrice.value = price
-                }
+
+
 
         </script>
     </body>

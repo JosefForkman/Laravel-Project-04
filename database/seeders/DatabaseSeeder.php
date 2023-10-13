@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         //Fill User Table with dummy user
-        \App\Models\User::factory(10)->create();
+        User::factory(10)->create();
 
         Admin::factory(10)->create();
 

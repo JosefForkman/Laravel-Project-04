@@ -70,42 +70,42 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 Gustav:
 
 Models:
-/Models/…; Model names should be singular and capitalized.
-/Models/Bought.php; Bough might be a confusing name, a better name might be Order. Example is how a user could have multiple orders.
+- /Models/…; Model names should be singular and capitalized.
+- /Models/Bought.php; Bough might be a confusing name, a better name might be Order. Example is how a user could have multiple orders.
 
 Seeders:
-Seeders/DatabaseSeeder.php; 30; Import model with “use” instead of writing the full pathway.
+- Seeders/DatabaseSeeder.php; 30; Import model with “use” instead of writing the full pathway.
 
 View:
-/Views/admin/auth/login.blade.php; Remaining out-commented code.
-/Views/prodokt.blade.php; 57; Using @method(‘post’) is unnecessary as it is already defined as an attribute to the form.
+- /Views/admin/auth/login.blade.php; Remaining out-commented code.
+- /Views/prodokt.blade.php; 57; Using @method(‘post’) is unnecessary as it is already defined as an attribute to the form.
 
 CSS:
-Public/app.css; The file app.css does not contain any code.
+- Public/app.css; The file app.css does not contain any code.
 
 Magnus:
 
 Controllers:
-/Admin/AdminAuthController.php; 10; Not used? (use Illuminate\Support\Facades\Hash;). A couple more of “use” are doubtful as well.
-/Admin/AdminAuthController.php; 25-33; 
-/Admin/AdminAuthController.php; 29, 32; Remaining out-commented code.
-BoughtController; 23, 35; Remaining out-commented var_dumps.
-CategoriesController.php; all; Empty controller. Fill with code or remove it.
-CommentController.php; all; Empty controller. Fill with code or remove it.
-RegisterController.php; 15-27; out-commented code. Will it be used later? If not, remove it.
-RegisterController.php; 36; “redirect()->to('/')” can be simplified to “redirect('/').
+- /Admin/AdminAuthController.php; 10; Not used? (use Illuminate\Support\Facades\Hash;). A couple more of “use” are doubtful as well.
+- /Admin/AdminAuthController.php; 25-33; 
+- /Admin/AdminAuthController.php; 29, 32; Remaining out-commented code.
+- BoughtController; 23, 35; Remaining out-commented var_dumps.
+- CategoriesController.php; all; Empty controller. Fill with code or remove it.
+- CommentController.php; all; Empty controller. Fill with code or remove it.
+- RegisterController.php; 15-27; out-commented code. Will it be used later? If not, remove it.
+- RegisterController.php; 36; “redirect()->to('/')” can be simplified to “redirect('/').
 
 Middleware:
-AdminAuthenticated.php; 19-26; out-commented code. Will it be used later? If not, remove it.
+- AdminAuthenticated.php; 19-26; out-commented code. Will it be used later? If not, remove it.
 Migrations:
-2023_02_27_071855_create_product.php; 22-25; out-commented code. Will it be used later? If not, remove it.
-2023_02_27_072045_create_comment.php; 19-24; out-commented code. Will it be used later? If not, remove it.
-web.php
+- 2023_02_27_071855_create_product.php; 22-25; out-commented code. Will it be used later? If not, remove it.
+- 2023_02_27_072045_create_comment.php; 19-24; out-commented code. Will it be used later? If not, remove it.
+- web.php
 
 Routes:
-web.php; 40-54, 74-88; Same Routes, twice..
-web.php; 62-64; out-commented code. Will it be used later? If not, remove it.
+- web.php; 40-54, 74-88; Same Routes, twice..
+- web.php; 62-64; out-commented code. Will it be used later? If not, remove it.
 
 Overall:
-Frequent mixing of different text casing and mixing of Singular and Plural named classes. Be sure to agree on common naming conventions when coding in a group.
+- Frequent mixing of different text casing and mixing of Singular and Plural named classes. Be sure to agree on common naming conventions when coding in a group.
 
